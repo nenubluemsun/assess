@@ -1,0 +1,84 @@
+package cn.edu.nenu.clzc.commons.enumeration.exception;
+
+public enum DaoExceptionEnum {
+	/*系统模块定义异常枚举开始*/
+	GetRolesByUsernameFaild("根据用户名查询角色异常！",10001),
+	
+	GetPermissionsByUsernameFaild("根据用户名查询权限异常！",10002),
+	
+	GetUserByUsernameFaild("根据用户名获取用户信息异常！",10003),
+	
+	SysPermissionDaoInsertFaild("权限插入失败",10004),
+	
+	/*系统模块定义异常枚举结束*/	
+	
+	
+	/*留言板模块定义异常枚举开始*/
+	AddMessageFaild("增添一条留言失败", 20001),
+	
+	UpdateMessageFaild("更改一条留言的显示状态失败", 20003),
+	
+	SelectAllMessageFaild("所有留言的分页查询失败", 20004),
+	
+	SelectByUserNameFaild("搜索用户的用户名来查找对应的留言失败", 20005),
+	
+	SelectFirstPageMessageFaild("留言板首页的分页显示失败", 20006),
+	
+	SelectByIdFaild("根据留言的id查看它的详细信息失败", 20007),
+	
+	SelectAllPageFaild("计算全部页数异常", 20008),
+	
+
+	SelectLikePageFaild("模糊查询计算全部页数异常", 20009), 
+
+	SelectFirstPageMessagePageFaild("计算前台页面可以显示的留言的分页页数异常", 20010), 
+	
+	SelectByUserNamePageFaild("计算模糊查询留言分页页数的方法异常", 20011),
+	
+	/*留言板模块定义异常枚举结束*/
+	
+	
+    /* 册模块定义异常枚举开始 */
+	
+	AddEditionFaild("添加试卷失败", 30001), 
+	
+	UpdateEditionFaild("修改册的状态失败", 30002), 
+	
+	SelectEditionByEditionNameFaild("根据册名查找册失败", 30003),
+	
+	
+	/* 册模块定义异常枚举结束*/
+	 
+	/*单元模块定义异常枚举开始*/
+	
+	AddUnitFaild("添加单元失败",30004),
+	
+	UpdateUnitFaild("修改单元失败",30005),
+	
+	SelectUnitByUnitNameFaild("根据单元名查找单元失败",30006),
+	
+	/*单元模块定义异常枚举结束*/
+	
+	/*后台管理用户信息模块定义异常开始*/
+	 InsertUserFaild("导入老师/学生账户信息失败",40001),
+	UpdateUserFaild("修改老师/学生信息失败",40002),   ;
+	/*后台管理用户信息模块定义异常开始*/
+	private int id;
+	private String info;
+
+	DaoExceptionEnum(String info,int id) {
+		this.id=id;
+		this.info=info;
+	}
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+
+	
+}

@@ -1,0 +1,22 @@
+package cn.edu.nenu.clzc.dao.examination;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ColumnListHandler;
+
+import cn.edu.nenu.clzc.commons.core.AbstractDao;
+import cn.edu.nenu.clzc.commons.entites.message.UserMessage;
+import cn.edu.nenu.clzc.commons.enumeration.exception.DaoExceptionEnum;
+import cn.edu.nenu.clzc.commons.exception.ContextException;
+
+
+public class ParamUnitDao extends AbstractDao {
+	
+	
+}

@@ -1,0 +1,149 @@
+package cn.edu.nenu.clzc.controller.examination;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+
+import cn.edu.nenu.clzc.commons.constant.RequestConstant;
+import cn.edu.nenu.clzc.commons.constant.ViewUriConstant;
+import cn.edu.nenu.clzc.commons.core.SystemConstant;
+import cn.edu.nenu.clzc.commons.core.annotation.RequestMapping;
+import cn.edu.nenu.clzc.commons.core.annotation.ResponseBody;
+import cn.edu.nenu.clzc.commons.entites.teacher.TeacherExamination;
+import cn.edu.nenu.clzc.commons.enumeration.exception.ControllerExceptionEnum;
+import cn.edu.nenu.clzc.commons.exception.ContextException;
+import cn.edu.nenu.clzc.commons.extend.ControllerExtend;
+import cn.edu.nenu.clzc.commons.utils.PageBean;
+import cn.edu.nenu.clzc.commons.vo.examination.ParamEditionVo;
+import cn.edu.nenu.clzc.commons.vo.examination.ParamUnitVo;
+
+
+@WebServlet(value=RequestConstant.EXAMINATION_CONTROLLER)
+public class ExaminationController extends ControllerExtend{
+	
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	* @Title: dispatchFrontExamination 
+	* @Author Kyrie Irving
+	* @Description: 跳转到前台试卷首页(这里用一句话描述这个方法的作用) 
+	* @param @throws ServletException
+	* @param @throws IOException    设定文件 
+	* @return void  返回类型 
+	* @throws
+	 */
+	@RequestMapping(value=RequestConstant.DISPATCH_FRONT_EXAMINATION ,method=SystemConstant.GET)
+	public void dispatchFrontExamination() throws ServletException, IOException{
+		requestDispatcher(ViewUriConstant.EXAMINATION_FRONT_PAGE);
+		}
+	/**
+	 * 
+	* @Title: ajaxGetFrontExaminationEdition 
+	* @Author Kyrie Irving
+	* @Description: ajax请求前台试卷首页显示的册(这里用一句话描述这个方法的作用) 
+	* @param @throws ServletException
+	* @param @throws IOException    设定文件 
+	* @return void    返回类型 
+	* @throws
+	 */
+	 
+	@RequestMapping(value=RequestConstant.AJAX_GET_FRONT_EXAMINATION, method=SystemConstant.POST)
+	@ResponseBody
+	public void ajaxGetFrontExaminationEdition() throws ServletException, IOException {
+		List<ParamEditionVo> list = new ArrayList<ParamEditionVo>();
+		int size = 1;
+		try {
+			list = paramEditionService.selectAllEdition();
+		} catch (ContextException e) {
+			logger.error(ControllerExceptionEnum.ExaminationEditionException.getInfo(),e);
+			to500(ControllerExceptionEnum.ExaminationEditionException.getInfo(), ViewUriConstant.ERROR500);
+		}
+		PageBean pageBean = new PageBean(size,list);
+		sendJson(pageBean);
+	}
+	
+	
+	/**
+	 * 
+	* @Title: ajaxGetUnitByEditionId 
+	* @Author Kyrie Irving
+	* @Description: ajax请求前台试卷首页显示的单元，根据册的ID(这里用一句话描述这个方法的作用) 
+	* @param @throws ServletException
+	* @param @throws IOException    设定文件 
+	* @return void    返回类型 
+	* @throws
+	 */
+	@RequestMapping(value=RequestConstant.AJAX_GET_UNIT_BY_EDITIONID)
+	public void ajaxGetUnitByEditionId() throws ServletException, IOException {
+		int currentPage = getInt("currentPage");
+		String editionId = getString("editionId");
+		List<ParamUnitVo> list = new ArrayList<ParamUnitVo>();
+		int size = 0;
+		try {
+			list = paramUnitService.selectUnitByEdition(editionId, currentPage);
+			size = paramUnitService.selectFirstUnitPage();
+		} catch (ContextException e) {
+			logger.error(ControllerExceptionEnum.GetUnitByEditionIdException.getInfo(),e);
+			to500(ControllerExceptionEnum.GetUnitByEditionIdException.getInfo(), ViewUriConstant.ERROR500);
+		}
+		PageBean pageBean = new PageBean(size, list);
+		sendJson(pageBean);
+	}
+	
+	
+	/**
+	 * 
+	* @Title: ajaxGetExaminationByUnit 
+	* @Author Kyrie Irving
+	* @Description: ajax请求前台试卷首页显示的试卷，根据单元(这里用一句话描述这个方法的作用) 
+	* @param @throws ServletException
+	* @param @throws IOException    设定文件 
+	* @return void    返回类型 
+	* @throws
+	 */
+	@RequestMapping(value=RequestConstant.AJAX_GET_EXAMINATION_BY_UNIT)
+	public void ajaxGetExaminationByUnit() throws ServletException, IOException {
+		int currentPage = getInt("currentPage");
+		String unitId = getString("unitId");
+		String examinationType = getString("examinationType");
+		List<TeacherExamination> list = new ArrayList<TeacherExamination>();
+		int size = 0;
+		try {
+			list = teacherExaminationService.selectExaminationByUnit(unitId, examinationType, currentPage);
+			size = teacherExaminationService.selectExaminationByUnitPage(unitId, examinationType);
+		} catch (ContextException e) {
+			logger.error(ControllerExceptionEnum.GetExaminationByUnitException.getInfo(),e);
+			to500(ControllerExceptionEnum.GetExaminationByUnitException.getInfo(), ViewUriConstant.ERROR500);
+		}
+		PageBean pageBean = new PageBean(size, list);
+		sendJson(pageBean);
+	}
+	/**
+	 * 
+	* @Title: ajaxGetExaminationOrTestQuestion 
+	* @Author Kyrie Irving
+	* @Description: ajax请求具体试卷内容(这里用一句话描述这个方法的作用) 
+	* @param @throws ServletException
+	* @param @throws IOException    设定文件 
+	* @return void    返回类型 
+	* @throws
+	 */
+	@RequestMapping(value=RequestConstant.AJAX_GET_EXAMINATION_OR_TEST_QUESTIONS)
+	public void ajaxGetExaminationOrTestQuestion() throws ServletException, IOException {
+		
+		try {
+		
+		} catch (ContextException e) {
+			logger.error(ControllerExceptionEnum.GetExaminationByUnitException.getInfo(),e);
+			to500(ControllerExceptionEnum.GetExaminationByUnitException.getInfo(), ViewUriConstant.ERROR500);
+		}
+		
+	}
+	
+	
+
+
+}

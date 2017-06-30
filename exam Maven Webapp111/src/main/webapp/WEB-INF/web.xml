@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" metadata-complete="false" version="3.0">
+  <display-name>fdgvSFv</display-name>
+  <context-param>
+    <param-name>upload</param-name>
+    <param-value>/WEB-INF/upload</param-value>
+  </context-param>
+  <context-param>
+    <param-name>tmp-upload</param-name>
+    <param-value>/WEB-INF/tmp-upload</param-value>
+  </context-param>
+  <context-param>
+    <param-name>shiroEnvironmentClass</param-name>
+    <param-value>org.apache.shiro.web.env.IniWebEnvironment</param-value>
+  </context-param>
+  <context-param>
+    <param-name>shiroConfigLocations</param-name>
+    <param-value>classpath:shiro.ini</param-value>
+  </context-param>
+</web-app>

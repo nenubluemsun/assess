@@ -1,0 +1,70 @@
+package cn.edu.nenu.clzc.service.examination;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.edu.nenu.clzc.commons.entites.examination.ParamQuestionsArticle;
+import cn.edu.nenu.clzc.commons.exception.ContextException;
+import cn.edu.nenu.clzc.commons.extend.ServiceExtend;
+
+/**
+ * 
+* @ClassName: ParamQuestionsArticleService
+* @Description: 文章大题的Service层(这里用一句话描述这个类的作用)
+* @author Kyrie Irving
+* @date 2016年12月5日 下午7:36:46
+ */
+
+public class ParamQuestionsArticleService extends ServiceExtend {
+	
+    /**
+     * 
+    * @Title: addQuestionsArticle
+    * @Description: 添加一篇大题文章(这里用一句话描述这个方法的作用)
+    * @author Kyrie Irving
+    * @param @param paramQuestionsArticle
+    * @param @return
+    * @param @throws ContextException    设定文件
+    * @return String    返回类型
+    * @throws
+     */
+	public String addQuestionsArticle(ParamQuestionsArticle paramQuestionsArticle) throws ContextException {
+		String id = null;
+		try {
+			id = paramQuestionsArticleDao.addQuestionsArticle(paramQuestionsArticle);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new ContextException(e);
+		}
+		return id;
+	}
+	
+	
+//删除的service层还没写
+	
+	
+	/**
+	 * 
+	* @Title: selectQuestionsArticlesByuestionsArticlesId
+	* @Description: 根据文章大题主键Id来查找答应大题下的文章(这里用一句话描述这个方法的作用)
+	* @author Kyrie Irving
+	* @param @param articleQuestionsId
+	* @param @return
+	* @param @throws ContextException    设定文件
+	* @return List<ParamQuestionsArticle>    返回类型
+	* @throws
+	 */
+	public List<ParamQuestionsArticle> selectQuestionsArticlesByuestionsArticlesId(String articleQuestionsId) throws ContextException {
+		List<ParamQuestionsArticle> list = new ArrayList<ParamQuestionsArticle>();
+		try {
+			list = paramQuestionsArticleDao.selectQuestionsArticlesByuestionsArticlesId(articleQuestionsId);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new ContextException(e);
+		}
+		return list;
+	}
+	
+	
+	
+}

@@ -1,0 +1,94 @@
+package cn.edu.nenu.clzc.service.examination;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.edu.nenu.clzc.commons.entites.examination.ParamEdition;
+import cn.edu.nenu.clzc.commons.exception.ContextException;
+import cn.edu.nenu.clzc.commons.extend.ServiceExtend;
+import cn.edu.nenu.clzc.commons.vo.examination.ParamEditionVo;
+
+/**
+ * 
+* @Author Kyrie Irving
+* @Title: AddEditionService 
+* @Description: 试卷操作的Sercvice层
+* @Date 2016年11月18日 下午9:29:38
+ */
+
+public class AddEditionService extends ServiceExtend {
+	
+	/**
+	* @Title: addEdition 
+	* @Author Kyrie Irving
+	* @Description: 添加一个册(这里用一句话描述这个方法的作用) 
+	* @param @param paramEdition
+	* @param @return
+	* @param @throws ContextException    设定文件 
+	* @return String    返回类型 
+	* @throws
+	 */
+	public String addEdition(ParamEdition paramEdition) throws ContextException {
+		String pe = null;
+		try {
+			pe = paramEditionDao.addEdition(paramEdition);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new ContextException(e);
+		}
+		return pe;
+	}
+	
+	/**
+	 * 
+	* @Title: updateEditiion 
+	* @Author Kyrie Irving
+	* @Description: 修改一条留言的显示状态的方法(这里用一句话描述这个方法的作用) 
+	* @param @param id
+	* @param @param editionIsDelete
+	* @param @return
+	* @param @throws ContextException    设定文件 
+	* @return int    返回类型 
+	* @throws
+	 */
+	public int updateEditiion(String id, String editionIsDelete) throws ContextException {
+		int xe = 0;
+		try {
+			xe = paramEditionDao.updateEdition(id, editionIsDelete);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new ContextException(e);
+		}
+		return xe;
+	}
+	
+	
+	
+	/**
+	* @Title: selectByEditionName 
+	* @Author Kyrie Irving
+	* @Description:根据册名查找册(这里用一句话描述这个方法的作用) 
+	* @param @param editionName
+	* @param @param currentPage
+	* @param @return
+	* @param @throws ContextException    设定文件 
+	* @return List<ParamEditionVo>    返回类型 
+	* @throws
+	 */
+	public List<ParamEditionVo> selectByEditionName(String editionName , int currentPage) throws ContextException{
+		List<ParamEditionVo> list = new ArrayList<ParamEditionVo>();
+		try {
+			list = paramEditionDao.selectByEditionName(editionName, currentPage);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new ContextException(e);
+		}
+		return list;
+	}
+	
+
+}
+	
+	
+	
+	

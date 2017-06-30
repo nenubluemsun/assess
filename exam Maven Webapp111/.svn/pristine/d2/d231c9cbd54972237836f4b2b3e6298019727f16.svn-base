@@ -1,0 +1,7 @@
+package cn.edu.nenu.clzc.dao.system;
+
+import cn.edu.nenu.clzc.commons.core.AbstractDao;
+
+public class SysRolePermissionDao extends AbstractDao {
+
+}

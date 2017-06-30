@@ -1,0 +1,65 @@
+package cn.edu.nenu.clzc.commons.entites.examination;
+
+import java.util.Date;
+
+public class ParamQuestionsType {
+    private String id;
+
+    private String questionsTypeName;
+
+    private String questionsObjectiveOrSubjecttive;
+
+    private Date questionsTypeTime;
+
+    private String questionTypeIsDelete;
+
+    private String questionTypeInfo;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getQuestionsTypeName() {
+        return questionsTypeName;
+    }
+
+    public void setQuestionsTypeName(String questionsTypeName) {
+        this.questionsTypeName = questionsTypeName;
+    }
+
+    public String getQuestionsObjectiveOrSubjecttive() {
+        return questionsObjectiveOrSubjecttive;
+    }
+
+    public void setQuestionsObjectiveOrSubjecttive(String questionsObjectiveOrSubjecttive) {
+        this.questionsObjectiveOrSubjecttive = questionsObjectiveOrSubjecttive;
+    }
+
+    public Date getQuestionsTypeTime() {
+        return questionsTypeTime;
+    }
+
+    public void setQuestionsTypeTime(Date questionsTypeTime) {
+        this.questionsTypeTime = questionsTypeTime;
+    }
+
+    public String getQuestionTypeIsDelete() {
+        return questionTypeIsDelete;
+    }
+
+    public void setQuestionTypeIsDelete(String questionTypeIsDelete) {
+        this.questionTypeIsDelete = questionTypeIsDelete;
+    }
+
+    public String getQuestionTypeInfo() {
+        return questionTypeInfo;
+    }
+
+    public void setQuestionTypeInfo(String questionTypeInfo) {
+        this.questionTypeInfo = questionTypeInfo;
+    }
+}

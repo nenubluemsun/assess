@@ -1,0 +1,105 @@
+package cn.edu.nenu.clzc.commons.entites.student;
+
+import java.util.Date;
+
+public class StudentQuestionAnswer {
+    private String id;
+
+    private String examinationId;
+
+    private String questionId;
+
+    private String teacherComment;
+
+    private Date answerTime;
+
+    private String answerIsDelete;
+
+    private String answerRightOrWrong;
+
+    private String studentId;
+
+    private String questionType;
+
+    private String studentAnswer;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getExaminationId() {
+        return examinationId;
+    }
+
+    public void setExaminationId(String examinationId) {
+        this.examinationId = examinationId;
+    }
+
+    public String getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
+    }
+
+    public String getTeacherComment() {
+        return teacherComment;
+    }
+
+    public void setTeacherComment(String teacherComment) {
+        this.teacherComment = teacherComment;
+    }
+
+    public Date getAnswerTime() {
+        return answerTime;
+    }
+
+    public void setAnswerTime(Date answerTime) {
+        this.answerTime = answerTime;
+    }
+
+    public String getAnswerIsDelete() {
+        return answerIsDelete;
+    }
+
+    public void setAnswerIsDelete(String answerIsDelete) {
+        this.answerIsDelete = answerIsDelete;
+    }
+
+    public String getAnswerRightOrWrong() {
+        return answerRightOrWrong;
+    }
+
+    public void setAnswerRightOrWrong(String answerRightOrWrong) {
+        this.answerRightOrWrong = answerRightOrWrong;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getQuestionType() {
+        return questionType;
+    }
+
+    public void setQuestionType(String questionType) {
+        this.questionType = questionType;
+    }
+
+    public String getStudentAnswer() {
+        return studentAnswer;
+    }
+
+    public void setStudentAnswer(String studentAnswer) {
+        this.studentAnswer = studentAnswer;
+    }
+}

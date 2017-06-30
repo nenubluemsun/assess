@@ -1,0 +1,38 @@
+package cn.edu.nenu.clzc.service.test.examination;
+
+import static org.junit.Assert.*;
+
+import java.util.Date;
+
+import org.junit.Test;
+
+import cn.edu.nenu.clzc.commons.core.BaseTest;
+import cn.edu.nenu.clzc.commons.entites.examination.ParamEdition;
+import cn.edu.nenu.clzc.commons.exception.ContextException;
+import cn.edu.nenu.clzc.service.examination.AddEditionService;
+
+public class ParamEditionDaoTest extends BaseTest {
+
+	AddEditionService service = new AddEditionService();
+
+	@Test
+	public void testAddEdition() throws ContextException {
+		ParamEdition ParamEdition = new ParamEdition();
+		ParamEdition.setEditionName("riving");
+		ParamEdition.setEditionInfo("qishixiaowangye");
+		ParamEdition.setEditionTime(new Date());
+
+		service.addEdition(ParamEdition);
+	}
+
+	@Test
+	public void testUpdateEdition() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetEditionByEditionName() {
+		fail("Not yet implemented");
+	}
+
+}
