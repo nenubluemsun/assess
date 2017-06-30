@@ -67,7 +67,7 @@ public class ColumnDao extends AbstractDao {
 	public void updateColumn(Column column, String id) {
 		String columnTitle = column.getColumnTitle();
 		String columnInfo = column.getColumnInfo();
-		String sql = "UPDATE `column` SET column_title = ? column_info = ? WHERE id = ?";
+		String sql = "UPDATE column SET column_title = ? column_info = ? WHERE id = ?";
 		Object[] params = {columnTitle, columnInfo, id};
 		try {
 			update(sql, params);
